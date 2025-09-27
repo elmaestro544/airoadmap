@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="AI Services - Complete AI Tool Suite" data-ar="خدمات الذكاء الاصطناعي - مجموعة أدوات شاملة">AI Services - Complete AI Tool Suite</title>
+    <meta name="description" data-en="Explore our comprehensive collection of AI services including text generation, image creation, data analysis, and more." data-ar="استكشف مجموعتنا الشاملة من خدمات الذكاء الاصطناعي بما في ذلك توليد النصوص وإنشاء الصور وتحليل البيانات والمزيد.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <i class="fas fa-robot"></i>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span data-en="AI Services Hub" data-ar="مركز خدمات الذكاء الاصطناعي">AI Services Hub</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="services.html" class="nav-link active" data-en="Services" data-ar="الخدمات">Services</a>
+                <a href="index.html#pricing" class="nav-link" data-en="Pricing" data-ar="الأسعار">Pricing</a>
+                <a href="#about" class="nav-link" data-en="About" data-ar="عن الموقع">About</a>
+                
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">عر</button>
+                </div>
+                
+                <!-- Auth Buttons -->
+                <div class="auth-buttons">
+                    <button class="btn-outline" id="loginBtn" data-en="Log In" data-ar="تسجيل الدخول">Log In</button>
+                    <button class="btn-primary" id="signupBtn" data-en="Get Started" data-ar="ابدأ الآن">Get Started</button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <a href="index.html" class="mobile-link" data-en="Home" data-ar="الرئيسية">Home</a>
+            <a href="services.html" class="mobile-link active" data-en="Services" data-ar="الخدمات">Services</a>
+            <a href="index.html#pricing" class="mobile-link" data-en="Pricing" data-ar="الأسعار">Pricing</a>
+            <a href="#about" class="mobile-link" data-en="About" data-ar="عن الموقع">About</a>
+            <div class="mobile-auth">
+                <button class="btn-outline" id="mobileLoginBtn" data-en="Log In" data-ar="تسجيل الدخول">Log In</button>
+                <button class="btn-primary" id="mobileSignupBtn" data-en="Get Started" data-ar="ابدأ الآن">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-en="AI Services Directory" data-ar="دليل خدمات الذكاء الاصطناعي">AI Services Directory</h1>
+            <p data-en="Discover powerful AI tools designed to transform your workflow and boost productivity" data-ar="اكتشف أدوات الذكاء الاصطناعي القوية المصممة لتحويل سير عملك وتعزيز الإنتاجية">Discover powerful AI tools designed to transform your workflow and boost productivity</p>
+            
+            <!-- Search and Filter Bar -->
+            <div class="service-search-bar">
+                <div class="search-input-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="serviceSearch" placeholder="Search AI services..." data-en="Search AI services..." data-ar="البحث في خدمات الذكاء الاصطناعي...">
+                </div>
+                
+                <div class="category-filters">
+                    <button class="filter-btn active" data-filter="all" data-en="All Categories" data-ar="جميع الفئات">All Categories</button>
+                    <button class="filter-btn" data-filter="text" data-en="Text & Writing" data-ar="النص والكتابة">Text & Writing</button>
+                    <button class="filter-btn" data-filter="image" data-en="Image & Design" data-ar="الصور والتصميم">Image & Design</button>
+                    <button class="filter-btn" data-filter="analysis" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</button>
+                    <button class="filter-btn" data-filter="voice" data-en="Voice & Audio" data-ar="الصوت والمقاطع الصوتية">Voice & Audio</button>
+                    <button class="filter-btn" data-filter="code" data-en="Development" data-ar="التطوير">Development</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-directory">
+        <div class="container">
+            <div class="services-grid-detailed" id="servicesGrid">
+                
+                <!-- Text Generation Services -->
+                <div class="service-card-detailed free" data-category="text">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <div class="service-badge free" data-en="Free" data-ar="مجاني">Free</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="AI Text Generator" data-ar="مولد النصوص الذكي">AI Text Generator</h3>
+                        <p data-en="Create compelling content, articles, and copy with our advanced AI writing assistant." data-ar="أنشئ محتوى مقنع ومقالات ونسخ مع مساعد الكتابة الذكي المتطور.">Create compelling content, articles, and copy with our advanced AI writing assistant.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="1000 words per day" data-ar="1000 كلمة يومياً">1000 words per day</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="10+ content templates" data-ar="أكثر من 10 قوالب محتوى">10+ content templates</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="Multi-language support" data-ar="دعم متعدد اللغات">Multi-language support</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button class="btn-primary" onclick="launchService('text-generator')" data-en="Try Now" data-ar="جرب الآن">Try Now</button>
+                            <button class="btn-outline" onclick="viewDemo('text-generator')" data-en="View Demo" data-ar="شاهد العرض التوضيحي">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Generation Service -->
+                <div class="service-card-detailed premium" data-category="image">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="service-badge premium" data-en="Premium" data-ar="مدفوع">Premium</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="AI Image Creator Pro" data-ar="منشئ الصور الذكي المحترف">AI Image Creator Pro</h3>
+                        <p data-en="Generate stunning, high-resolution images from text descriptions with professional quality output." data-ar="أنشئ صوراً مذهلة عالية الدقة من الأوصاف النصية مع جودة إخراج احترافية.">Generate stunning, high-resolution images from text descriptions with professional quality output.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="Unlimited generations" data-ar="توليد غير محدود">Unlimited generations</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="4K resolution output" data-ar="إخراج بدقة 4K">4K resolution output</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="Commercial licensing" data-ar="ترخيص تجاري">Commercial licensing</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button class="btn-primary" onclick="upgradeRequired('image-creator')" data-en="Upgrade to Use" data-ar="الترقية للاستخدام">Upgrade to Use</button>
+                            <button class="btn-outline" onclick="viewDemo('image-creator')" data-en="View Demo" data-ar="شاهد العرض التوضيحي">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Analysis Service -->
+                <div class="service-card-detailed free" data-category="analysis">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-badge free" data-en="Free" data-ar="مجاني">Free</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Smart Data Analyzer" data-ar="محلل البيانات الذكي">Smart Data Analyzer</h3>
+                        <p data-en="Upload your data and get instant AI-powered insights with automated chart generation." data-ar="قم بتحميل بياناتك واحصل على رؤى فورية مدعومة بالذكاء الاصطناعي مع توليد المخططات الآلي.">Upload your data and get instant AI-powered insights with automated chart generation.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="CSV/Excel import" data-ar="استيراد CSV/Excel">CSV/Excel import</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="Interactive charts" data-ar="مخططات تفاعلية">Interactive charts</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="Basic insights" data-ar="رؤى أساسية">Basic insights</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button class="btn-primary" onclick="launchService('data-analyzer')" data-en="Analyze Data" data-ar="تحليل البيانات">Analyze Data</button>
+                            <button class="btn-outline" onclick="viewDemo('data-analyzer')" data-en="View Demo" data-ar="شاهد العرض التوضيحي">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Translation Service -->
+                <div class="service-card-detailed premium" data-category="text">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="service-badge premium" data-en="Premium" data-ar="مدفوع">Premium</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="AI Translator Pro" data-ar="المترجم الذكي المحترف">AI Translator Pro</h3>
+                        <p data-en="Professional translation with context awareness, cultural nuances, and industry-specific terminology." data-ar="ترجمة احترافية مع إدراك السياق والفروق الثقافية والمصطلحات الخاصة بالصناعة.">Professional translation with context awareness, cultural nuances, and industry-specific terminology.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="120+ languages" data-ar="أكثر من 120 لغة">120+ languages</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="Document translation" data-ar="ترجمة المستندات">Document translation</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="Industry specialization" data-ar="التخصص الصناعي">Industry specialization</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button class="btn-primary" onclick="upgradeRequired('translator')" data-en="Upgrade to Use" data-ar="الترقية للاستخدام">Upgrade to Use</button>
+                            <button class="btn-outline" onclick="viewDemo('translator')" data-en="View Demo" data-ar="شاهد العرض التوضيحي">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voice Synthesis Service -->
+                <div class="service-card-detailed premium" data-category="voice">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="service-badge premium" data-en="Premium" data-ar="مدفوع">Premium</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="AI Voice Studio" data-ar="استوديو الصوت الذكي">AI Voice Studio</h3>
+                        <p data-en="Transform text into natural-sounding speech with customizable voices, emotions, and speaking styles." data-ar="حول النص إلى كلام طبيعي مع أصوات وعواطف وأساليب كلام قابلة للتخصيص.">Transform text into natural-sounding speech with customizable voices, emotions, and speaking styles.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="50+ voice options" data-ar="أكثر من 50 خيار صوتي">50+ voice options</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="Emotion control" data-ar="التحكم في العاطفة">Emotion control</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-crown"></i>
+                                <span data-en="Studio-quality output" data-ar="إخراج بجودة الاستوديو">Studio-quality output</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button class="btn-primary" onclick="upgradeRequired('voice-studio')" data-en="Upgrade to Use" data-ar="الترقية للاستخدام">Upgrade to Use</button>
+                            <button class="btn-outline" onclick="viewDemo('voice-studio')" data-en="View Demo" data-ar="شاهد العرض التوضيحي">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Assistant Service -->
+                <div class="service-card-detailed free" data-category="code">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="service-badge free" data-en="Free" data-ar="مجاني">Free</div>
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="AI Code Assistant" data-ar="مساعد البرمجة الذكي">AI Code Assistant</h3>
+                        <p data-en="Get intelligent code suggestions, bug fixes, and optimization recommendations across multiple programming languages." data-ar="احصل على اقتراحات ذكية للكود وإصلاحات للأخطاء وتوصيات التحسين عبر لغات برمجة متعددة.">Get intelligent code suggestions, bug fixes, and optimization recommendations across multiple programming languages.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="20+ programming languages" data-ar="أكثر من 20 لغة برمجة">20+ programming languages</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="Code completion" data-ar="إكمال الكود">Code completion</span>
+                            </div>
+                            <div class="feature-row">
+                                <i class="fas fa-check"></i>
+                                <span data-en="Basic debugging" data-ar="تصحيح أساسي">Basic debugging</span>
+                            </div>
+                        </div>
+                        
+                        <div class="service-actions">
+                            <button class="btn-primary" onclick="launchService('code-assistant')" data-en="Start Coding" data-ar="ابدأ البرمجة">Start Coding</button>
+                            <button class="btn-outline" onclick="viewDemo('code-assistant')" data-en="View Demo" data-ar="شاهد العرض التوضيحي">View Demo</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="btn-outline load-more-btn" data-en="Load More Services" data-ar="تحميل المزيد من الخدمات">Load More Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-en="Ready to Transform Your Workflow?" data-ar="هل أنت مستعد لتحويل سير عملك؟">Ready to Transform Your Workflow?</h2>
+                <p data-en="Join thousands of professionals who are already using our AI tools to boost their productivity and creativity." data-ar="انضم إلى آلاف المحترفين الذين يستخدمون بالفعل أدوات الذكاء الاصطناعي لديناري تعزيز إنتاجيتهم وإبداعهم.">Join thousands of professionals who are already using our AI tools to boost their productivity and creativity.</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary large" onclick="location.href='index.html#pricing'" data-en="Choose Your Plan" data-ar="اختر خطتك">Choose Your Plan</button>
+                    <button class="btn-outline large" onclick="showAuthModal('signup')" data-en="Start Free Trial" data-ar="ابدأ التجربة المجانية">Start Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authentication Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+                <h2 data-en="Welcome Back" data-ar="مرحباً بعودتك">Welcome Back</h2>
+                <p data-en="Sign in to access your AI tools" data-ar="سجل الدخول للوصول إلى أدواتك الذكية">Sign in to access your AI tools</p>
+                
+                <form>
+                    <div class="input-group">
+                        <input type="email" required placeholder=" ">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required placeholder=" ">
+                        <label data-en="Password" data-ar="كلمة المرور">Password</label>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span data-en="Remember me" data-ar="تذكرني">Remember me</span>
+                        </label>
+                        <a href="#" data-en="Forgot password?" data-ar="نسيت كلمة المرور؟">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary full-width" data-en="Sign In" data-ar="تسجيل الدخول">Sign In</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span data-en="or" data-ar="أو">or</span>
+                </div>
+                
+                <button class="btn-outline full-width social-btn">
+                    <i class="fab fa-google"></i>
+                    <span data-en="Continue with Google" data-ar="المتابعة مع جوجل">Continue with Google</span>
+                </button>
+                
+                <p class="auth-switch">
+                    <span data-en="Don't have an account?" data-ar="لا تملك حساباً؟">Don't have an account?</span>
+                    <a href="#" id="showSignup" data-en="Sign up" data-ar="سجل الآن">Sign up</a>
+                </p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signupForm" class="auth-form">
+                <h2 data-en="Join AI Services Hub" data-ar="انضم إلى مركز خدمات الذكاء الاصطناعي">Join AI Services Hub</h2>
+                <p data-en="Start your AI-powered journey today" data-ar="ابدأ رحلتك المدعومة بالذكاء الاصطناعي اليوم">Start your AI-powered journey today</p>
+                
+                <form>
+                    <div class="input-group">
+                        <input type="text" required placeholder=" ">
+                        <label data-en="Full Name" data-ar="الاسم الكامل">Full Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" required placeholder=" ">
+                        <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" required placeholder=" ">
+                        <label data-en="Password" data-ar="كلمة المرور">Password</label>
+                    </div>
+                    <label class="checkbox">
+                        <input type="checkbox" required>
+                        <span class="checkmark"></span>
+                        <span data-en="I agree to the Terms of Service and Privacy Policy" data-ar="أوافق على شروط الخدمة وسياسة الخصوصية">I agree to the Terms of Service and Privacy Policy</span>
+                    </label>
+                    <button type="submit" class="btn-primary full-width" data-en="Create Account" data-ar="إنشاء حساب">Create Account</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span data-en="or" data-ar="أو">or</span>
+                </div>
+                
+                <button class="btn-outline full-width social-btn">
+                    <i class="fab fa-google"></i>
+                    <span data-en="Sign up with Google" data-ar="التسجيل مع جوجل">Sign up with Google</span>
+                </button>
+                
+                <p class="auth-switch">
+                    <span data-en="Already have an account?" data-ar="تملك حساباً بالفعل؟">Already have an account?</span>
+                    <a href="#" id="showLogin" data-en="Sign in" data-ar="سجل الدخول">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-robot"></i>
+                        <span data-en="AI Services Hub" data-ar="مركز خدمات الذكاء الاصطناعي">AI Services Hub</span>
+                    </div>
+                    <p data-en="Empowering creators with cutting-edge AI technology" data-ar="تمكين المبدعين بتقنية الذكاء الاصطناعي المتطورة">Empowering creators with cutting-edge AI technology</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Product" data-ar="المنتج">Product</h4>
+                    <a href="services.html" data-en="All Services" data-ar="جميع الخدمات">All Services</a>
+                    <a href="index.html#pricing" data-en="Pricing" data-ar="الأسعار">Pricing</a>
+                    <a href="#" data-en="API Documentation" data-ar="توثيق الـ API">API Documentation</a>
+                    <a href="#" data-en="Changelog" data-ar="سجل التغييرات">Changelog</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ar="الشركة">Company</h4>
+                    <a href="#" data-en="About Us" data-ar="عنا">About Us</a>
+                    <a href="#" data-en="Careers" data-ar="الوظائف">Careers</a>
+                    <a href="#" data-en="Blog" data-ar="المدونة">Blog</a>
+                    <a href="#" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Legal" data-ar="قانوني">Legal</h4>
+                    <a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+                    <a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a>
+                    <a href="#" data-en="Cookie Policy" data-ar="سياسة الكوكيز">Cookie Policy</a>
+                    <a href="#" data-en="GDPR" data-ar="لائحة حماية البيانات">GDPR</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="© 2024 AI Services Hub. All rights reserved." data-ar="© 2024 مركز خدمات الذكاء الاصطناعي. جميع الحقوق محفوظة.">© 2024 AI Services Hub. All rights reserved.</p>
+                <div class="footer-language">
+                    <button class="footer-lang-btn" data-lang="en">English</button>
+                    <button class="footer-lang-btn" data-lang="ar">العربية</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/services.js"></script>
+</body>
+</html>

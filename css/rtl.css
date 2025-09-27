@@ -1,0 +1,191 @@
+/* RTL (Right-to-Left) Styles for Arabic Language */
+
+[dir="rtl"] {
+    font-family: var(--font-arabic);
+}
+
+/* Navigation RTL */
+[dir="rtl"] .nav-container {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-menu {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-logo {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .auth-buttons {
+    flex-direction: row-reverse;
+}
+
+/* Hero RTL */
+[dir="rtl"] .hero-container {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+}
+
+[dir="rtl"] .hero-content {
+    text-align: right;
+}
+
+[dir="rtl"] .hero-buttons {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-stats {
+    flex-direction: row-reverse;
+}
+
+/* Services RTL */
+[dir="rtl"] .service-card {
+    text-align: right;
+}
+
+[dir="rtl"] .service-badge {
+    left: var(--spacing-lg);
+    right: auto;
+}
+
+[dir="rtl"] .feature-list li {
+    padding-right: var(--spacing-lg);
+    padding-left: 0;
+}
+
+[dir="rtl"] .feature-list li::before {
+    right: 0;
+    left: auto;
+}
+
+/* Forms RTL */
+[dir="rtl"] .input-group label {
+    right: var(--spacing-md);
+    left: auto;
+}
+
+[dir="rtl"] .checkbox {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .form-options {
+    flex-direction: row-reverse;
+}
+
+/* Modal RTL */
+[dir="rtl"] .close {
+    left: var(--spacing-lg);
+    right: auto;
+}
+
+[dir="rtl"] .auth-form {
+    text-align: right;
+}
+
+[dir="rtl"] .social-btn {
+    flex-direction: row-reverse;
+}
+
+/* Footer RTL */
+[dir="rtl"] .footer-content {
+    direction: rtl;
+}
+
+[dir="rtl"] .footer-logo {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-links {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-bottom {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .footer-language {
+    flex-direction: row-reverse;
+}
+
+/* Mobile Menu RTL */
+[dir="rtl"] .mobile-menu {
+    text-align: right;
+}
+
+[dir="rtl"] .mobile-auth {
+    align-items: stretch;
+}
+
+/* Pricing RTL */
+[dir="rtl"] .pricing-features li {
+    flex-direction: row-reverse;
+}
+
+/* Language Switcher RTL */
+[dir="rtl"] .language-switcher {
+    flex-direction: row-reverse;
+}
+
+/* Adjustments for Arabic Text */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    font-family: var(--font-arabic);
+    font-weight: 600;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] label {
+    font-family: var(--font-arabic);
+}
+
+/* Arabic Typography Improvements */
+[dir="rtl"] .hero-title {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+[dir="rtl"] .section-header h2 {
+    font-weight: 700;
+}
+
+/* Better spacing for Arabic text */
+[dir="rtl"] .nav-link,
+[dir="rtl"] .mobile-link {
+    letter-spacing: 0;
+}
+
+[dir="rtl"] .btn-primary,
+[dir="rtl"] .btn-outline {
+    letter-spacing: 0;
+}
+
+/* Responsive RTL adjustments */
+@media (max-width: 768px) {
+    [dir="rtl"] .hero-container {
+        text-align: center;
+        direction: ltr; /* Center align for mobile */
+    }
+    
+    [dir="rtl"] .hero-content {
+        text-align: center;
+    }
+    
+    [dir="rtl"] .service-card {
+        text-align: center;
+    }
+    
+    [dir="rtl"] .footer-content {
+        text-align: center;
+        direction: ltr;
+    }
+}
