@@ -537,17 +537,33 @@ class AIServicesHub {
         }, 3000);
     }
 
-    // Service Actions (placeholder for actual implementation)
+    // Service Actions (actual implementation)
     handleServiceAction(serviceId, action) {
         console.log(`Service action: ${action} for service: ${serviceId}`);
         
-        // Simulate service interaction
-        this.showNotification(
-            this.currentLang === 'ar' 
-                ? `تم تفعيل خدمة ${serviceId}` 
-                : `Activated service: ${serviceId}`,
-            'success'
-        );
+        // Route to actual service pages
+        const serviceRoutes = {
+            'translator': 'translator.html',
+            'data-analyzer': 'data-analyzer.html',
+            'grammar-checker': 'grammar-checker.html',
+            'prompt-generator': 'prompt-generator.html',
+            'text-generator': 'text-generator.html',
+            'image-creator': 'image-creator.html',
+            'voice-studio': 'voice-studio.html',
+            'code-assistant': 'code-assistant.html'
+        };
+
+        if (serviceRoutes[serviceId]) {
+            window.location.href = serviceRoutes[serviceId];
+        } else {
+            // Fallback for services not yet implemented
+            this.showNotification(
+                this.currentLang === 'ar' 
+                    ? `خدمة ${serviceId} قيد التطوير` 
+                    : `Service ${serviceId} is under development`,
+                'info'
+            );
+        }
     }
 
     // Payment Processing (placeholder)

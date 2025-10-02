@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="AI Data Analyzer - AI Roadmap" data-ar="محلل البيانات الذكي - خارطة طريق الذكاء الاصطناعي">AI Data Analyzer - AI Roadmap</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-robot"></i>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span data-en="AI Roadmap" data-ar="خارطة طريق الذكاء الاصطناعي">AI Roadmap</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="services.html" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">عر</button>
+                </div>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Data Analyzer Service -->
+    <section class="service-workspace">
+        <div class="container">
+            <div class="service-header-workspace">
+                <div class="service-icon-large">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h1 data-en="AI Data Analyzer" data-ar="محلل البيانات الذكي">AI Data Analyzer</h1>
+                <p data-en="Upload your data and get instant AI-powered insights with automated visualizations" data-ar="قم بتحميل بياناتك واحصل على رؤى فورية مدعومة بالذكاء الاصطناعي مع تصورات تلقائية">Upload your data and get instant AI-powered insights with automated visualizations</p>
+            </div>
+
+            <div class="analyzer-interface">
+                <!-- Data Upload Section -->
+                <div class="upload-section">
+                    <div class="upload-card">
+                        <div class="upload-header">
+                            <h3 data-en="Upload Data" data-ar="رفع البيانات">Upload Data</h3>
+                            <span class="supported-formats" data-en="Supported: CSV, Excel, JSON" data-ar="المدعوم: CSV, Excel, JSON">Supported: CSV, Excel, JSON</span>
+                        </div>
+                        
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h4 data-en="Drop files here or click to upload" data-ar="أسقط الملفات هنا أو انقر للرفع">Drop files here or click to upload</h4>
+                            <p data-en="Maximum file size: 10MB" data-ar="الحد الأقصى لحجم الملف: 10 ميجابايت">Maximum file size: 10MB</p>
+                            <input type="file" id="fileInput" accept=".csv,.xlsx,.xls,.json" style="display: none;">
+                            <button class="btn-primary" id="uploadBtn" data-en="Choose File" data-ar="اختر ملف">Choose File</button>
+                        </div>
+
+                        <div class="upload-progress" id="uploadProgress" style="display: none;">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <span class="progress-text" id="progressText">0%</span>
+                        </div>
+
+                        <!-- Sample Data Options -->
+                        <div class="sample-data">
+                            <h4 data-en="Or try sample datasets:" data-ar="أو جرب بيانات عينة:">Or try sample datasets:</h4>
+                            <div class="sample-buttons">
+                                <button class="btn-outline sample-btn" data-sample="sales" data-en="Sales Data" data-ar="بيانات المبيعات">Sales Data</button>
+                                <button class="btn-outline sample-btn" data-sample="customers" data-en="Customer Data" data-ar="بيانات العملاء">Customer Data</button>
+                                <button class="btn-outline sample-btn" data-sample="finance" data-en="Financial Data" data-ar="البيانات المالية">Financial Data</button>
+                                <button class="btn-outline sample-btn" data-sample="marketing" data-en="Marketing Data" data-ar="بيانات التسويق">Marketing Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Preview -->
+                <div class="data-preview" id="dataPreview" style="display: none;">
+                    <div class="preview-header">
+                        <h3 data-en="Data Preview" data-ar="معاينة البيانات">Data Preview</h3>
+                        <div class="data-info">
+                            <span id="dataInfo" data-en="0 rows, 0 columns" data-ar="0 صف، 0 عمود">0 rows, 0 columns</span>
+                            <button class="btn-outline" id="analyzeBtn" data-en="Analyze Data" data-ar="تحليل البيانات">Analyze Data</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="dataTable" class="data-table">
+                            <thead id="tableHead"></thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analysis Results -->
+                <div class="analysis-results" id="analysisResults" style="display: none;">
+                    <div class="results-header">
+                        <h3 data-en="AI Analysis Results" data-ar="نتائج التحليل الذكي">AI Analysis Results</h3>
+                        <div class="analysis-info">
+                            <span data-en="Model Used:" data-ar="النموذج المستخدم:">Model Used:</span>
+                            <span id="modelName">GPT-4 Data Analysis</span>
+                        </div>
+                    </div>
+
+                    <!-- Key Insights -->
+                    <div class="insights-section">
+                        <h4 data-en="Key Insights" data-ar="الرؤى الرئيسية">Key Insights</h4>
+                        <div class="insights-grid" id="insightsGrid">
+                            <!-- Insights will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Statistical Summary -->
+                    <div class="statistics-section">
+                        <h4 data-en="Statistical Summary" data-ar="الملخص الإحصائي">Statistical Summary</h4>
+                        <div class="stats-grid" id="statisticsGrid">
+                            <!-- Statistics will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Visualizations -->
+                    <div class="charts-section">
+                        <h4 data-en="Data Visualizations" data-ar="تصورات البيانات">Data Visualizations</h4>
+                        <div class="charts-container">
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h5 data-en="Distribution Chart" data-ar="مخطط التوزيع">Distribution Chart</h5>
+                                    <select id="chartType">
+                                        <option value="bar" data-en="Bar Chart" data-ar="مخطط أعمدة">Bar Chart</option>
+                                        <option value="line" data-en="Line Chart" data-ar="مخطط خطي">Line Chart</option>
+                                        <option value="pie" data-en="Pie Chart" data-ar="مخطط دائري">Pie Chart</option>
+                                        <option value="scatter" data-en="Scatter Plot" data-ar="مخطط تبعثر">Scatter Plot</option>
+                                    </select>
+                                </div>
+                                <canvas id="mainChart" style="height: 400px;"></canvas>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h5 data-en="Correlation Matrix" data-ar="مصفوفة الارتباط">Correlation Matrix</h5>
+                                </div>
+                                <canvas id="correlationChart" style="height: 400px;"></canvas>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h5 data-en="Trend Analysis" data-ar="تحليل الاتجاه">Trend Analysis</h5>
+                                </div>
+                                <canvas id="trendChart" style="height: 400px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Recommendations -->
+                    <div class="recommendations-section">
+                        <h4 data-en="AI Recommendations" data-ar="توصيات الذكاء الاصطناعي">AI Recommendations</h4>
+                        <div class="recommendations-list" id="recommendationsList">
+                            <!-- Recommendations will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Export Options -->
+                    <div class="export-section">
+                        <h4 data-en="Export Results" data-ar="تصدير النتائج">Export Results</h4>
+                        <div class="export-buttons">
+                            <button class="btn-outline" id="exportPDF" data-en="Export PDF" data-ar="تصدير PDF">
+                                <i class="fas fa-file-pdf"></i> Export PDF
+                            </button>
+                            <button class="btn-outline" id="exportExcel" data-en="Export Excel" data-ar="تصدير Excel">
+                                <i class="fas fa-file-excel"></i> Export Excel
+                            </button>
+                            <button class="btn-outline" id="exportJSON" data-en="Export JSON" data-ar="تصدير JSON">
+                                <i class="fas fa-file-code"></i> Export JSON
+                            </button>
+                            <button class="btn-primary" id="shareResults" data-en="Share Results" data-ar="مشاركة النتائج">
+                                <i class="fas fa-share"></i> Share Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Loading Modal -->
+    <div id="analysisModal" class="modal" style="display: none;">
+        <div class="modal-content loading-content">
+            <div class="analysis-animation">
+                <div class="ai-brain">
+                    <div class="brain-dot"></div>
+                    <div class="brain-dot"></div>
+                    <div class="brain-dot"></div>
+                </div>
+                <h3 data-en="AI is analyzing your data..." data-ar="الذكاء الاصطناعي يحلل بياناتك...">AI is analyzing your data...</h3>
+                <p id="analysisStatus" data-en="Processing datasets and generating insights..." data-ar="معالجة مجموعات البيانات وتوليد الرؤى...">Processing datasets and generating insights...</p>
+                <div class="analysis-progress">
+                    <div class="progress-step active" data-en="Data Processing" data-ar="معالجة البيانات">Data Processing</div>
+                    <div class="progress-step" data-en="Statistical Analysis" data-ar="التحليل الإحصائي">Statistical Analysis</div>
+                    <div class="progress-step" data-en="Pattern Recognition" data-ar="التعرف على الأنماط">Pattern Recognition</div>
+                    <div class="progress-step" data-en="Generating Insights" data-ar="توليد الرؤى">Generating Insights</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data-analyzer.js"></script>
+
+    <style>
+        .service-workspace {
+            padding: calc(80px + 2rem) 1rem 2rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-white) 100%);
+        }
+
+        .analyzer-interface {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .upload-section {
+            margin-bottom: 3rem;
+        }
+
+        .upload-card {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .upload-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .upload-header h3 {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .supported-formats {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .upload-area {
+            border: 3px dashed var(--gray-300);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary-navy);
+            background: var(--gray-50);
+        }
+
+        .upload-area.dragover {
+            border-color: var(--primary-red);
+            background: var(--red-light);
+            background-opacity: 0.1;
+        }
+
+        .upload-icon {
+            margin-bottom: 1rem;
+        }
+
+        .upload-icon i {
+            font-size: 3rem;
+            color: var(--primary-navy);
+        }
+
+        .upload-progress {
+            margin: 2rem 0;
+        }
+
+        .progress-bar {
+            background: var(--gray-200);
+            border-radius: var(--radius-lg);
+            height: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary-navy), var(--primary-red));
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        .sample-data {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .sample-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .sample-btn {
+            padding: 0.75rem 1.5rem;
+        }
+
+        .data-preview, .analysis-results {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .preview-header, .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .data-table th {
+            background: var(--gray-50);
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        .insights-grid, .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .insight-card, .stat-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-navy);
+        }
+
+        .insight-card h5, .stat-card h5 {
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            display: block;
+        }
+
+        .charts-section {
+            margin-bottom: 3rem;
+        }
+
+        .charts-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .chart-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .chart-header h5 {
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .chart-header select {
+            padding: 0.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+        }
+
+        .recommendations-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .recommendation-item {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-red);
+        }
+
+        .recommendation-item h5 {
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .export-section {
+            border-top: 1px solid var(--gray-200);
+            padding-top: 2rem;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .export-buttons button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Analysis Animation */
+        .analysis-animation {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .ai-brain {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .brain-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-navy);
+            border-radius: 50%;
+            animation: brainPulse 1.5s ease-in-out infinite;
+        }
+
+        .brain-dot:nth-child(1) { animation-delay: 0s; }
+        .brain-dot:nth-child(2) { animation-delay: 0.5s; }
+        .brain-dot:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes brainPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        .analysis-progress {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .progress-step {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-lg);
+            background: var(--gray-200);
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .progress-step.active {
+            background: var(--primary-navy);
+            color: var(--primary-white);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .upload-header,
+            .preview-header,
+            .results-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .sample-buttons,
+            .export-buttons {
+                justify-content: center;
+            }
+
+            .analysis-progress {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

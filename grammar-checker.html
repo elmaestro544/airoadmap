@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="AI Grammar Checker - AI Roadmap" data-ar="مدقق القواعد الذكي - خارطة طريق الذكاء الاصطناعي">AI Grammar Checker - AI Roadmap</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-robot"></i>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span data-en="AI Roadmap" data-ar="خارطة طريق الذكاء الاصطناعي">AI Roadmap</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="services.html" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">عر</button>
+                </div>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Grammar Checker Service -->
+    <section class="service-workspace">
+        <div class="container">
+            <div class="service-header-workspace">
+                <div class="service-icon-large">
+                    <i class="fas fa-spell-check"></i>
+                </div>
+                <h1 data-en="AI Grammar Checker" data-ar="مدقق القواعد الذكي">AI Grammar Checker</h1>
+                <p data-en="Advanced grammar, spelling, and style checking powered by AI - Your free alternative to Grammarly" data-ar="تدقيق متقدم للقواعد والإملاء والأسلوب مدعوم بالذكاء الاصطناعي - بديلك المجاني لـ Grammarly">Advanced grammar, spelling, and style checking powered by AI - Your free alternative to Grammarly</p>
+            </div>
+
+            <div class="grammar-interface">
+                <!-- Writing Interface -->
+                <div class="writing-workspace">
+                    <div class="editor-panel">
+                        <div class="editor-header">
+                            <h3 data-en="Document Editor" data-ar="محرر المستند">Document Editor</h3>
+                            <div class="editor-controls">
+                                <select id="languageSelect">
+                                    <option value="en" data-en="English" data-ar="الإنجليزية">English</option>
+                                    <option value="ar" data-en="Arabic" data-ar="العربية">Arabic</option>
+                                    <option value="es" data-en="Spanish" data-ar="الإسبانية">Spanish</option>
+                                    <option value="fr" data-en="French" data-ar="الفرنسية">French</option>
+                                    <option value="de" data-en="German" data-ar="الألمانية">German</option>
+                                </select>
+                                <button class="btn-outline" id="checkBtn" data-en="Check Text" data-ar="فحص النص">Check Text</button>
+                            </div>
+                        </div>
+                        
+                        <div class="editor-container">
+                            <div class="editor-textarea" 
+                                 id="textEditor" 
+                                 contenteditable="true"
+                                 data-placeholder="Start typing your text here..."
+                                 data-placeholder-en="Start typing your text here..."
+                                 data-placeholder-ar="ابدأ كتابة نصك هنا...">
+                            </div>
+                            
+                            <div class="editor-stats">
+                                <span class="stat-item">
+                                    <span data-en="Words:" data-ar="الكلمات:">Words:</span>
+                                    <span id="wordCount">0</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span data-en="Characters:" data-ar="الأحرف:">Characters:</span>
+                                    <span id="charCount">0</span>
+                                </span>
+                                <span class="stat-item">
+                                    <span data-en="Reading Time:" data-ar="وقت القراءة:">Reading Time:</span>
+                                    <span id="readingTime">0 min</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="editor-actions">
+                            <button class="btn-outline" id="clearText" data-en="Clear" data-ar="مسح">Clear</button>
+                            <button class="btn-outline" id="pasteText" data-en="Paste" data-ar="لصق">Paste</button>
+                            <button class="btn-outline" id="copyText" data-en="Copy" data-ar="نسخ">Copy</button>
+                            <button class="btn-primary" id="downloadText" data-en="Download" data-ar="تحميل">Download</button>
+                        </div>
+                    </div>
+
+                    <!-- Suggestions Panel -->
+                    <div class="suggestions-panel">
+                        <div class="panel-header">
+                            <h3 data-en="AI Suggestions" data-ar="الاقتراحات الذكية">AI Suggestions</h3>
+                            <div class="suggestions-stats">
+                                <span class="error-count" id="errorCount" data-en="0 issues found" data-ar="0 مشاكل موجودة">0 issues found</span>
+                            </div>
+                        </div>
+
+                        <div class="suggestions-container" id="suggestionsContainer">
+                            <div class="no-suggestions">
+                                <i class="fas fa-check-circle"></i>
+                                <p data-en="Type some text to get AI-powered suggestions" data-ar="اكتب بعض النص للحصول على اقتراحات ذكية">Type some text to get AI-powered suggestions</p>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="quick-actions">
+                            <h4 data-en="Quick Actions" data-ar="إجراءات سريعة">Quick Actions</h4>
+                            <div class="action-buttons">
+                                <button class="action-btn" id="fixAllBtn" data-en="Fix All Issues" data-ar="إصلاح جميع المشاكل">
+                                    <i class="fas fa-magic"></i> Fix All Issues
+                                </button>
+                                <button class="action-btn" id="improveStyleBtn" data-en="Improve Style" data-ar="تحسين الأسلوب">
+                                    <i class="fas fa-paint-brush"></i> Improve Style
+                                </button>
+                                <button class="action-btn" id="shortenTextBtn" data-en="Make Concise" data-ar="اجعله مقتضب">
+                                    <i class="fas fa-compress"></i> Make Concise
+                                </button>
+                                <button class="action-btn" id="expandTextBtn" data-en="Expand Text" data-ar="توسيع النص">
+                                    <i class="fas fa-expand"></i> Expand Text
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Dashboard -->
+                <div class="analysis-dashboard" id="analysisDashboard" style="display: none;">
+                    <div class="dashboard-header">
+                        <h3 data-en="Writing Analysis" data-ar="تحليل الكتابة">Writing Analysis</h3>
+                        <div class="overall-score">
+                            <span data-en="Writing Score:" data-ar="نقاط الكتابة:">Writing Score:</span>
+                            <span class="score-value" id="overallScore">--</span>
+                        </div>
+                    </div>
+
+                    <div class="analysis-grid">
+                        <div class="analysis-card">
+                            <div class="card-icon grammar">
+                                <i class="fas fa-spell-check"></i>
+                            </div>
+                            <h4 data-en="Grammar" data-ar="القواعد">Grammar</h4>
+                            <div class="score-circle">
+                                <span class="score" id="grammarScore">--</span>
+                            </div>
+                            <div class="issue-list" id="grammarIssues"></div>
+                        </div>
+
+                        <div class="analysis-card">
+                            <div class="card-icon spelling">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                            <h4 data-en="Spelling" data-ar="الإملاء">Spelling</h4>
+                            <div class="score-circle">
+                                <span class="score" id="spellingScore">--</span>
+                            </div>
+                            <div class="issue-list" id="spellingIssues"></div>
+                        </div>
+
+                        <div class="analysis-card">
+                            <div class="card-icon style">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h4 data-en="Style" data-ar="الأسلوب">Style</h4>
+                            <div class="score-circle">
+                                <span class="score" id="styleScore">--</span>
+                            </div>
+                            <div class="issue-list" id="styleIssues"></div>
+                        </div>
+
+                        <div class="analysis-card">
+                            <div class="card-icon clarity">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4 data-en="Clarity" data-ar="الوضوح">Clarity</h4>
+                            <div class="score-circle">
+                                <span class="score" id="clarityScore">--</span>
+                            </div>
+                            <div class="issue-list" id="clarityIssues"></div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Suggestions -->
+                    <div class="detailed-suggestions">
+                        <h4 data-en="Detailed Suggestions" data-ar="الاقتراحات التفصيلية">Detailed Suggestions</h4>
+                        <div class="suggestion-categories">
+                            <button class="category-btn active" data-category="all" data-en="All" data-ar="الكل">All</button>
+                            <button class="category-btn" data-category="grammar" data-en="Grammar" data-ar="القواعد">Grammar</button>
+                            <button class="category-btn" data-category="spelling" data-en="Spelling" data-ar="الإملاء">Spelling</button>
+                            <button class="category-btn" data-category="style" data-en="Style" data-ar="الأسلوب">Style</button>
+                            <button class="category-btn" data-category="clarity" data-en="Clarity" data-ar="الوضوح">Clarity</button>
+                        </div>
+                        <div class="detailed-list" id="detailedList">
+                            <!-- Detailed suggestions will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Texts -->
+                <div class="sample-texts">
+                    <h3 data-en="Try Sample Texts" data-ar="جرب النصوص النموذجية">Try Sample Texts</h3>
+                    <div class="sample-buttons">
+                        <button class="sample-btn" data-sample="business" data-en="Business Email" data-ar="بريد إلكتروني تجاري">Business Email</button>
+                        <button class="sample-btn" data-sample="academic" data-en="Academic Essay" data-ar="مقال أكاديمي">Academic Essay</button>
+                        <button class="sample-btn" data-sample="creative" data-en="Creative Writing" data-ar="كتابة إبداعية">Creative Writing</button>
+                        <button class="sample-btn" data-sample="report" data-en="Report" data-ar="تقرير">Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checking Progress Modal -->
+    <div id="checkingModal" class="modal" style="display: none;">
+        <div class="modal-content loading-content">
+            <div class="checking-animation">
+                <div class="checking-icon">
+                    <i class="fas fa-spell-check"></i>
+                </div>
+                <h3 data-en="AI is checking your text..." data-ar="الذكاء الاصطناعي يفحص نصك...">AI is checking your text...</h3>
+                <p id="checkingStatus" data-en="Analyzing grammar, spelling, and style..." data-ar="تحليل القواعد والإملاء والأسلوب...">Analyzing grammar, spelling, and style...</p>
+                <div class="checking-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="checkingProgressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/grammar-checker.js"></script>
+
+    <style>
+        .grammar-interface {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .writing-workspace {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .editor-panel, .suggestions-panel {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .editor-header, .panel-header {
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .editor-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .editor-controls select {
+            padding: 0.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-md);
+        }
+
+        .editor-container {
+            position: relative;
+        }
+
+        .editor-textarea {
+            min-height: 400px;
+            padding: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            outline: none;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .editor-textarea:empty::before {
+            content: attr(data-placeholder);
+            color: var(--gray-400);
+            font-style: italic;
+        }
+
+        .editor-textarea[data-lang="ar"] {
+            direction: rtl;
+            text-align: right;
+            font-family: var(--font-arabic);
+        }
+
+        .editor-stats {
+            padding: 1rem 2rem;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .editor-actions {
+            padding: 1rem 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .suggestions-container {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .no-suggestions {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--gray-500);
+        }
+
+        .no-suggestions i {
+            font-size: 3rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .suggestion-item {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-red);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .suggestion-item:hover {
+            background: var(--primary-white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .suggestion-item.grammar { border-left-color: var(--primary-red); }
+        .suggestion-item.spelling { border-left-color: #ff9500; }
+        .suggestion-item.style { border-left-color: var(--primary-navy); }
+        .suggestion-item.clarity { border-left-color: #00c851; }
+
+        .suggestion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .suggestion-type {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .suggestion-type.grammar { background: rgba(255, 0, 0, 0.1); color: var(--primary-red); }
+        .suggestion-type.spelling { background: rgba(255, 149, 0, 0.1); color: #ff9500; }
+        .suggestion-type.style { background: rgba(13, 60, 85, 0.1); color: var(--primary-navy); }
+        .suggestion-type.clarity { background: rgba(0, 200, 81, 0.1); color: #00c851; }
+
+        .suggestion-text {
+            margin-bottom: 0.75rem;
+            color: var(--gray-700);
+        }
+
+        .suggestion-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .suggestion-btn {
+            padding: 0.4rem 0.8rem;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: var(--transition-fast);
+        }
+
+        .suggestion-btn.accept {
+            background: var(--primary-navy);
+            color: var(--primary-white);
+        }
+
+        .suggestion-btn.ignore {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .quick-actions {
+            padding: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .quick-actions h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-navy);
+        }
+
+        .action-buttons {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            padding: 0.75rem;
+            border: 2px solid var(--gray-300);
+            background: var(--primary-white);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .action-btn:hover {
+            border-color: var(--primary-navy);
+            background: var(--gray-50);
+        }
+
+        .analysis-dashboard {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .overall-score {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .score-value {
+            color: var(--primary-navy);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .analysis-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .card-icon.grammar { background: rgba(255, 0, 0, 0.1); color: var(--primary-red); }
+        .card-icon.spelling { background: rgba(255, 149, 0, 0.1); color: #ff9500; }
+        .card-icon.style { background: rgba(13, 60, 85, 0.1); color: var(--primary-navy); }
+        .card-icon.clarity { background: rgba(0, 200, 81, 0.1); color: #00c851; }
+
+        .card-icon i {
+            font-size: 1.5rem;
+        }
+
+        .score-circle {
+            margin: 1rem 0;
+        }
+
+        .score {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        .suggestion-categories {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--gray-300);
+            background: var(--primary-white);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            border-color: var(--primary-navy);
+            background: var(--primary-navy);
+            color: var(--primary-white);
+        }
+
+        .sample-texts {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sample-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .sample-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--gray-300);
+            background: var(--primary-white);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .sample-btn:hover {
+            border-color: var(--primary-navy);
+            background: var(--gray-50);
+        }
+
+        .error-count {
+            font-weight: 600;
+            color: var(--primary-red);
+        }
+
+        .checking-animation {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .checking-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .checking-icon i {
+            font-size: 2rem;
+            color: var(--primary-white);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .checking-progress {
+            max-width: 300px;
+            margin: 2rem auto;
+        }
+
+        .progress-bar {
+            background: var(--gray-200);
+            border-radius: var(--radius-lg);
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary-navy), var(--primary-red));
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Highlighting for errors in text */
+        .grammar-error {
+            background: rgba(255, 0, 0, 0.2);
+            border-bottom: 2px solid var(--primary-red);
+            cursor: pointer;
+        }
+
+        .spelling-error {
+            background: rgba(255, 149, 0, 0.2);
+            border-bottom: 2px solid #ff9500;
+            cursor: pointer;
+        }
+
+        .style-error {
+            background: rgba(13, 60, 85, 0.2);
+            border-bottom: 2px solid var(--primary-navy);
+            cursor: pointer;
+        }
+
+        .clarity-error {
+            background: rgba(0, 200, 81, 0.2);
+            border-bottom: 2px solid #00c851;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .writing-workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .editor-header,
+            .panel-header,
+            .dashboard-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .editor-stats {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .editor-actions {
+                flex-wrap: wrap;
+            }
+
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sample-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>

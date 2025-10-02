@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="AI Translator - AI Roadmap" data-ar="المترجم الذكي - خارطة طريق الذكاء الاصطناعي">AI Translator - AI Roadmap</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-robot"></i>
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span data-en="AI Roadmap" data-ar="خارطة طريق الذكاء الاصطناعي">AI Roadmap</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a>
+                <a href="services.html" class="nav-link" data-en="Services" data-ar="الخدمات">Services</a>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">عر</button>
+                </div>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Translator Service -->
+    <section class="service-workspace">
+        <div class="container">
+            <div class="service-header-workspace">
+                <div class="service-icon-large">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h1 data-en="AI Translator" data-ar="المترجم الذكي">AI Translator</h1>
+                <p data-en="Professional translation with context awareness powered by advanced AI models" data-ar="ترجمة احترافية مع إدراك السياق مدعومة بنماذج ذكاء اصطناعي متقدمة">Professional translation with context awareness powered by advanced AI models</p>
+            </div>
+
+            <div class="translator-interface">
+                <!-- Language Selection -->
+                <div class="language-selector">
+                    <div class="language-input">
+                        <label data-en="From" data-ar="من">From</label>
+                        <select id="sourceLanguage">
+                            <option value="auto" data-en="Auto-detect" data-ar="اكتشاف تلقائي">Auto-detect</option>
+                            <option value="en" data-en="English" data-ar="الإنجليزية">English</option>
+                            <option value="ar" data-en="Arabic" data-ar="العربية">Arabic</option>
+                            <option value="es" data-en="Spanish" data-ar="الإسبانية">Spanish</option>
+                            <option value="fr" data-en="French" data-ar="الفرنسية">French</option>
+                            <option value="de" data-en="German" data-ar="الألمانية">German</option>
+                            <option value="it" data-en="Italian" data-ar="الإيطالية">Italian</option>
+                            <option value="pt" data-en="Portuguese" data-ar="البرتغالية">Portuguese</option>
+                            <option value="ru" data-en="Russian" data-ar="الروسية">Russian</option>
+                            <option value="ja" data-en="Japanese" data-ar="اليابانية">Japanese</option>
+                            <option value="ko" data-en="Korean" data-ar="الكورية">Korean</option>
+                            <option value="zh" data-en="Chinese" data-ar="الصينية">Chinese</option>
+                            <option value="hi" data-en="Hindi" data-ar="الهندية">Hindi</option>
+                            <option value="tr" data-en="Turkish" data-ar="التركية">Turkish</option>
+                            <option value="pl" data-en="Polish" data-ar="البولندية">Polish</option>
+                            <option value="nl" data-en="Dutch" data-ar="الهولندية">Dutch</option>
+                        </select>
+                    </div>
+
+                    <div class="language-swap">
+                        <button id="swapLanguages" title="Swap Languages">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="language-output">
+                        <label data-en="To" data-ar="إلى">To</label>
+                        <select id="targetLanguage">
+                            <option value="ar" data-en="Arabic" data-ar="العربية">Arabic</option>
+                            <option value="en" data-en="English" data-ar="الإنجليزية">English</option>
+                            <option value="es" data-en="Spanish" data-ar="الإسبانية">Spanish</option>
+                            <option value="fr" data-en="French" data-ar="الفرنسية">French</option>
+                            <option value="de" data-en="German" data-ar="الألمانية">German</option>
+                            <option value="it" data-en="Italian" data-ar="الإيطالية">Italian</option>
+                            <option value="pt" data-en="Portuguese" data-ar="البرتغالية">Portuguese</option>
+                            <option value="ru" data-en="Russian" data-ar="الروسية">Russian</option>
+                            <option value="ja" data-en="Japanese" data-ar="اليابانية">Japanese</option>
+                            <option value="ko" data-en="Korean" data-ar="الكورية">Korean</option>
+                            <option value="zh" data-en="Chinese" data-ar="الصينية">Chinese</option>
+                            <option value="hi" data-en="Hindi" data-ar="الهندية">Hindi</option>
+                            <option value="tr" data-en="Turkish" data-ar="التركية">Turkish</option>
+                            <option value="pl" data-en="Polish" data-ar="البولندية">Polish</option>
+                            <option value="nl" data-en="Dutch" data-ar="الهولندية">Dutch</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Translation Interface -->
+                <div class="translation-workspace">
+                    <div class="input-panel">
+                        <div class="panel-header">
+                            <h3 data-en="Source Text" data-ar="النص المصدر">Source Text</h3>
+                            <span class="char-count" id="charCount">0 / 5000</span>
+                        </div>
+                        <textarea 
+                            id="sourceText" 
+                            placeholder="Enter text to translate..."
+                            data-en="Enter text to translate..."
+                            data-ar="أدخل النص للترجمة..."
+                            maxlength="5000"
+                        ></textarea>
+                        
+                        <div class="input-actions">
+                            <button class="btn-outline" id="clearText" data-en="Clear" data-ar="مسح">Clear</button>
+                            <button class="btn-outline" id="pasteText" data-en="Paste" data-ar="لصق">Paste</button>
+                            <button class="btn-primary" id="translateBtn" data-en="Translate" data-ar="ترجم">Translate</button>
+                        </div>
+                    </div>
+
+                    <div class="output-panel">
+                        <div class="panel-header">
+                            <h3 data-en="Translation" data-ar="الترجمة">Translation</h3>
+                            <div class="output-actions">
+                                <button class="btn-icon" id="copyTranslation" title="Copy Translation">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                                <button class="btn-icon" id="speakTranslation" title="Speak Translation">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="translation-output" id="translationOutput">
+                            <div class="placeholder-text" data-en="Translation will appear here..." data-ar="ستظهر الترجمة هنا...">Translation will appear here...</div>
+                        </div>
+                        
+                        <div class="translation-info" id="translationInfo" style="display: none;">
+                            <div class="confidence-score">
+                                <span data-en="Confidence:" data-ar="مستوى الثقة:">Confidence:</span>
+                                <span id="confidenceScore">95%</span>
+                            </div>
+                            <div class="model-info">
+                                <span data-en="Model:" data-ar="النموذج:">Model:</span>
+                                <span id="modelUsed">GPT-4 Translation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Translations -->
+                <div class="quick-translations">
+                    <h3 data-en="Quick Phrases" data-ar="العبارات السريعة">Quick Phrases</h3>
+                    <div class="quick-phrases">
+                        <button class="phrase-btn" data-text="Hello, how are you?" data-en="Hello, how are you?" data-ar="مرحبا، كيف حالك؟">Hello, how are you?</button>
+                        <button class="phrase-btn" data-text="Thank you very much" data-en="Thank you very much" data-ar="شكراً لك جزيلاً">Thank you very much</button>
+                        <button class="phrase-btn" data-text="Where is the nearest hospital?" data-en="Where is the nearest hospital?" data-ar="أين أقرب مستشفى؟">Where is the nearest hospital?</button>
+                        <button class="phrase-btn" data-text="I need help" data-en="I need help" data-ar="أحتاج المساعدة">I need help</button>
+                        <button class="phrase-btn" data-text="What time is it?" data-en="What time is it?" data-ar="كم الساعة؟">What time is it?</button>
+                        <button class="phrase-btn" data-text="Good morning" data-en="Good morning" data-ar="صباح الخير">Good morning</button>
+                    </div>
+                </div>
+
+                <!-- Translation History -->
+                <div class="translation-history" style="display: none;">
+                    <h3 data-en="Recent Translations" data-ar="الترجمات الأخيرة">Recent Translations</h3>
+                    <div class="history-list" id="historyList">
+                        <!-- History items will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal" style="display: none;">
+        <div class="modal-content loading-content">
+            <div class="loading-animation">
+                <div class="loading-spinner"></div>
+                <h3 data-en="Translating..." data-ar="جاري الترجمة...">Translating...</h3>
+                <p data-en="AI is processing your text..." data-ar="الذكاء الاصطناعي يعالج النص...">AI is processing your text...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/translator.js"></script>
+
+    <style>
+        .service-workspace {
+            padding: calc(80px + 2rem) 1rem 2rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--primary-white) 100%);
+        }
+
+        .service-header-workspace {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-icon-large {
+            width: 100px;
+            height: 100px;
+            background: var(--primary-navy);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .service-icon-large i {
+            font-size: 3rem;
+            color: var(--primary-white);
+        }
+
+        .service-header-workspace h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .translator-interface {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .language-input, .language-output {
+            flex: 1;
+        }
+
+        .language-input label, .language-output label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        .language-input select, .language-output select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            background: var(--primary-white);
+        }
+
+        .language-swap {
+            padding: 0 1rem;
+        }
+
+        .language-swap button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: var(--gray-100);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .language-swap button:hover {
+            background: var(--primary-navy);
+            color: var(--primary-white);
+        }
+
+        .translation-workspace {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .input-panel, .output-panel {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header h3 {
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        .char-count {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .output-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .btn-icon:hover {
+            background: var(--primary-navy);
+            color: var(--primary-white);
+        }
+
+        #sourceText {
+            width: 100%;
+            height: 300px;
+            padding: 1.5rem;
+            border: none;
+            resize: none;
+            font-size: 1rem;
+            font-family: inherit;
+            line-height: 1.6;
+        }
+
+        #sourceText:focus {
+            outline: none;
+        }
+
+        .input-actions {
+            padding: 1rem 1.5rem;
+            background: var(--gray-50);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .translation-output {
+            padding: 1.5rem;
+            min-height: 300px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray-800);
+        }
+
+        .placeholder-text {
+            color: var(--gray-400);
+            font-style: italic;
+        }
+
+        .translation-info {
+            padding: 1rem 1.5rem;
+            background: var(--gray-50);
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .quick-translations {
+            background: var(--primary-white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .quick-translations h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .quick-phrases {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .phrase-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--gray-300);
+            background: var(--primary-white);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: 0.9rem;
+        }
+
+        .phrase-btn:hover {
+            border-color: var(--primary-navy);
+            background: var(--primary-navy);
+            color: var(--primary-white);
+        }
+
+        .loading-content {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--gray-200);
+            border-top: 4px solid var(--primary-navy);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .translation-workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .language-selector {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .language-swap {
+                padding: 0;
+            }
+
+            .quick-phrases {
+                justify-content: center;
+            }
+        }
+    </style>
+</body>
+</html>
